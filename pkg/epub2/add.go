@@ -7,7 +7,7 @@ import (
 
 // AddMetadataSubject adds subject to metadata
 func (e *EPUB) AddMetadataSubject(subj string) {
-	e.Meta += "<dc:subject>" + subj + "</dc:subject>\n"
+	e.Metadata += "<dc:subject>" + subj + "</dc:subject>\n"
 }
 
 // AddMetadataAuthor adds author to metadata
@@ -18,29 +18,29 @@ func (e *EPUB) AddMetadataAuthor(firstName, middleName, lastName string) {
 	}
 	ln := lastName
 
-	e.Meta += `<dc:creator opf:file-as="` + ln + ", " + name + `" opf:role="aut" xmlns:opf="http://www.idpf.org/2007/opf">` + name + " " + ln + `</dc:creator>` + "\n"
+	e.Metadata += `<dc:creator opf:file-as="` + ln + ", " + name + `" opf:role="aut" xmlns:opf="http://www.idpf.org/2007/opf">` + name + " " + ln + `</dc:creator>` + "\n"
 }
 
 // AddMetadataDescription adds description to metadata
 func (e *EPUB) AddMetadataDescription(desc string) {
-	e.Meta += "<dc:description>" + desc + "</dc:description>\n"
+	e.Metadata += "<dc:description>" + desc + "</dc:description>\n"
 }
 
 // AddMetadataTitle adds title to metadata
 func (e *EPUB) AddMetadataTitle(title string) {
 	e.Title = title
-	e.Meta += "<dc:title>" + title + "</dc:title>\n"
+	e.Metadata += "<dc:title>" + title + "</dc:title>\n"
 }
 
 // AddMetadataLanguage adds language to metadata
 func (e *EPUB) AddMetadataLanguage(lang string) {
 	e.Lang = lang
-	e.Meta += `<dc:language xsi:type="dcterms:RFC3066">` + lang + `</dc:language>` + "\n"
+	e.Metadata += `<dc:language xsi:type="dcterms:RFC3066">` + lang + `</dc:language>` + "\n"
 }
 
 // AddMetadataCover add cover to metadata
 func (e *EPUB) AddMetadataCover(imageName string) {
-	e.Meta += `<meta name="cover" content="` + imageName + `" />` + "\n"
+	e.Metadata += `<meta name="cover" content="` + imageName + `" />` + "\n"
 }
 
 func (e *EPUB) AddItem(itemName, guideType, content string) error {

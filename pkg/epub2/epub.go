@@ -14,7 +14,7 @@ type EPUB struct {
 	UUID     string
 	Lang     string
 	Title    string
-	Meta     string
+	Metadata string
 	Manifest string
 	Spine    string
 	Toc      []TOC
